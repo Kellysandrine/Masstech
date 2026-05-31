@@ -72,12 +72,11 @@ export default function HomePage() {
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80')`,
         }}
       >
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-            {company.tagline || "Building Excellence"}
-            <br className="hidden sm:block" />
-            <span className="text-[#4D8FFF]"> in Rwanda</span>
-          </h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+  Building Excellence
+  <br className="hidden sm:block" />
+  <span className="text-[#4D8FFF]"> in Rwanda</span>
+</h1>
 
           <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8">
             {company.description ||
