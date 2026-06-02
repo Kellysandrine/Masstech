@@ -5,14 +5,6 @@
   "framework": null,
   "rewrites": [
     {
-      "source": "/api/contact",
-      "destination": "/api/server"
-    },
-    {
-      "source": "/api/contact/:path*",
-      "destination": "/api/server"
-    },
-    {
       "source": "/api/:path*",
       "destination": "https://masstech1.created.app/api/:path*"
     },
