@@ -1,23 +1,21 @@
 import sql from "../utils/sql.js";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Get all contact inquiries (for admin)
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const status = searchParams.get("status");
-
     let query = "SELECT * FROM contact_inquiries";
     let params = [];
-
     if (status) {
       query += " WHERE status = $1";
       params = [status];
     }
-
     query += " ORDER BY created_at DESC";
-
     const inquiries = await sql(query, params);
-
     return Response.json({
       success: true,
       data: inquiries,
@@ -53,7 +51,6 @@ export async function POST(request) {
       );
     }
 
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return Response.json(
@@ -72,6 +69,32 @@ export async function POST(request) {
       RETURNING *
     `;
 
+    // Send email notification to MASS Tech
+    try {
+      await resend.emails.send({
+        from: "MASS Tech Contact <onboarding@resend.dev>",
+        to: "info@masstech1.com",
+        subject: `New Inquiry: ${subject || "Contact Form Submission"}`,
+        html: `
+          <h2>New Contact Form Inquiry</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+          <p><strong>Subject:</strong> ${subject || "Not provided"}</p>
+          <p><strong>Service Interest:</strong> ${service_interest || "Not provided"}</p>
+          <p><strong>Budget Range:</strong> ${budget_range || "Not provided"}</p>
+          <p><strong>Timeline:</strong> ${timeline || "Not provided"}</p>
+          <h3>Message:</h3>
+          <p>${message}</p>
+          <hr />
+          <p style="color: gray; font-size: 12px;">This inquiry was submitted via the MASS Tech website contact form.</p>
+        `,
+      });
+    } catch (emailError) {
+      // Don't fail the whole request if email fails
+      console.error("Email notification failed:", emailError);
+    }
+
     return Response.json({
       success: true,
       message: "Thank you for your inquiry! We will get back to you soon.",
@@ -81,58 +104,6 @@ export async function POST(request) {
     console.error("Error creating contact inquiry:", error);
     return Response.json(
       { success: false, error: "Failed to submit inquiry. Please try again." },
-      { status: 500 },
-    );
-  }
-}
-
-// Update contact inquiry status
-export async function PUT(request) {
-  try {
-    const body = await request.json();
-    const { id, status } = body;
-
-    if (!id || !status) {
-      return Response.json(
-        { success: false, error: "Contact inquiry ID and status are required" },
-        { status: 400 },
-      );
-    }
-
-    const validStatuses = ["new", "contacted", "responded", "closed"];
-    if (!validStatuses.includes(status)) {
-      return Response.json(
-        {
-          success: false,
-          error:
-            "Invalid status. Must be one of: new, contacted, responded, closed",
-        },
-        { status: 400 },
-      );
-    }
-
-    const result = await sql`
-      UPDATE contact_inquiries 
-      SET status = ${status}, updated_at = CURRENT_TIMESTAMP
-      WHERE id = ${id} 
-      RETURNING *
-    `;
-
-    if (result.length === 0) {
-      return Response.json(
-        { success: false, error: "Contact inquiry not found" },
-        { status: 404 },
-      );
-    }
-
-    return Response.json({
-      success: true,
-      data: result[0],
-    });
-  } catch (error) {
-    console.error("Error updating contact inquiry:", error);
-    return Response.json(
-      { success: false, error: "Failed to update contact inquiry" },
       { status: 500 },
     );
   }
