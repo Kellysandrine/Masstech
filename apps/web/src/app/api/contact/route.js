@@ -72,7 +72,7 @@ export async function POST(request) {
     // Send email notification to MASS Tech
     try {
       await resend.emails.send({
-        from: "MASS Tech Contact <onboarding@resend.dev>",
+        from: "MASS Tech Contact <noreply@masstech1.com>",
         to: "info@masstech1.com",
         subject: `New Inquiry: ${subject || "Contact Form Submission"}`,
         html: `
