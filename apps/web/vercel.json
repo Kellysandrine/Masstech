@@ -5,36 +5,8 @@
   "framework": null,
   "rewrites": [
     {
-      "source": "/api/services/:path*",
-      "destination": "https://masstech1.created.app/api/services/:path*"
-    },
-    {
-      "source": "/api/services",
-      "destination": "https://masstech1.created.app/api/services"
-    },
-    {
-      "source": "/api/projects/:path*",
-      "destination": "https://masstech1.created.app/api/projects/:path*"
-    },
-    {
-      "source": "/api/projects",
-      "destination": "https://masstech1.created.app/api/projects"
-    },
-    {
-      "source": "/api/company/:path*",
-      "destination": "https://masstech1.created.app/api/company/:path*"
-    },
-    {
-      "source": "/api/company",
-      "destination": "https://masstech1.created.app/api/company"
-    },
-    {
-      "source": "/api/team/:path*",
-      "destination": "https://masstech1.created.app/api/team/:path*"
-    },
-    {
-      "source": "/api/team",
-      "destination": "https://masstech1.created.app/api/team"
+      "source": "/api/:path*",
+      "destination": "https://masstech1.created.app/api/:path*"
     },
     {
       "source": "/(.*)",
