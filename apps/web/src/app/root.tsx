@@ -8,6 +8,7 @@ import {
   useLocation,
   useRouteError,
 } from 'react-router';
+import { Analytics } from '@vercel/analytics/react';
 
 import { useButton } from '@react-aria/button';
 import {
@@ -383,6 +384,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <Toaster position="bottom-right" />
         <ScrollRestoration />
         <Scripts />
+        <Analytics />
         <script src="https://kit.fontawesome.com/2c15cc0cc7.js" crossOrigin="anonymous" async />
       </body>
     </html>
