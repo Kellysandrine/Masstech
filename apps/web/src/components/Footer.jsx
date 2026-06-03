@@ -13,7 +13,7 @@ export default function Footer() {
     <img
       src={logo1}
       alt="MASS Tech"
-      className="h-12 w-auto object-contain"
+      className="h-24 w-auto object-contain"
     />
   </div>
   <p className="text-gray-400 text-sm leading-relaxed mb-6">
