@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import logo1 from "../logo1.png";
 
 export default function Footer() {
   return (
@@ -9,14 +10,13 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#006DFF] to-[#2F7BFF] rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-lg">M</span>
-              </div>
-              <div>
-                <span className="text-white font-bold text-lg tracking-tight">
-                  MASS Tech
-                </span>
-                <div className="text-xs text-gray-400">Building Excellence</div>
+              <div className="flex items-center space-x-3 mb-6">
+  <img
+    src={logo1}
+    alt="MASS Tech"
+    className="h-24 w-auto object-contain"
+  />
+</div>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
