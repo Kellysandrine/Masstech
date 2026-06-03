@@ -29,7 +29,7 @@ export default function Footer() {
       <span className="text-white text-xs font-bold">in</span>
     </div>
     <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#006DFF] transition-colors cursor-pointer">
-      <span className="text-white text-xs font-bold">@</span>
+      <span className="text-white text-xs font-bold">x</span>
     </div>
   </div>
 </div>
@@ -173,26 +173,26 @@ export default function Footer() {
                 />
                 <div>
                   <p className="text-gray-400 text-sm">
-                    KG 15 Ave, Kigali, Rwanda
+                    1 KN 78 St, Kigali, Rwanda
                   </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={16} className="text-[#006DFF] flex-shrink-0" />
                 <a
-                  href="tel:+250788123456"
+                  href="tel:+250 788 886 502"
                   className="text-gray-400 text-sm hover:text-white transition-colors"
                 >
-                  +250 788 123 456
+                  +250 788 886 502
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={16} className="text-[#006DFF] flex-shrink-0" />
                 <a
-                  href="mailto:info@masstech.rw"
+                  href="mailto:info@masstech1.com"
                   className="text-gray-400 text-sm hover:text-white transition-colors"
                 >
-                  info@masstech.rw
+                  info@masstech1.com
                 </a>
               </div>
             </div>
@@ -214,23 +214,12 @@ export default function Footer() {
             © 2024 MASS Tech Ltd. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
+            
             <a
-              href="#"
+              href="uksandrine@gmail.com"
               className="text-gray-400 hover:text-white transition-colors"
             >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              Terms of Service
-            </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              Cookie Policy
+              Designed By: Kelly Sandrine U.
             </a>
           </div>
         </div>
