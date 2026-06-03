@@ -13,9 +13,7 @@ export default function Header() {
       <header className="w-full bg-white dark:bg-[#1E1E1E] border-b border-[#E5E7EB] dark:border-[#333333] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           {/* Brand block - left aligned */}
-          <div className="flex items-center space-x-3">
-            {/* Logo icon */}
-            <div className="flex items-center">
+<div className="flex items-center space-x-3">
   <img
     src="/logo.png"
     alt="MASS Tech"
