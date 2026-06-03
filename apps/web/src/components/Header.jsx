@@ -18,7 +18,7 @@ export default function Header() {
   <img
   src={logo}
   alt="MASS Tech"
-  className="h-8 sm:h-10 w-auto object-contain"
+  className="h-12 sm:h-16 w-auto object-contain"
 />
 </div>
 
