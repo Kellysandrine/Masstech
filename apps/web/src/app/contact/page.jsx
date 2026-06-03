@@ -43,20 +43,53 @@ export default function ContactPage() {
   });
 
   // Submit contact form mutation
-  const contactMutation = useMutation({
-    mutationFn: async (contactData) => {
-      const response = await fetch("/api/contact", {
+const contactMutation = useMutation({
+  mutationFn: async (contactData) => {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(contactData),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to submit contact form");
+    }
+
+    // Send email directly via Resend API
+    try {
+      await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`,
         },
-        body: JSON.stringify(contactData),
+        body: JSON.stringify({
+          from: "MASS Tech Contact <noreply@masstech1.com>",
+          to: "info@masstech1.com",
+          subject: `New Inquiry: ${contactData.subject || "Contact Form Submission"}`,
+          html: `
+            <h2>New Contact Form Inquiry</h2>
+            <p><strong>Name:</strong> ${contactData.name}</p>
+            <p><strong>Email:</strong> ${contactData.email}</p>
+            <p><strong>Phone:</strong> ${contactData.phone || "Not provided"}</p>
+            <p><strong>Subject:</strong> ${contactData.subject || "Not provided"}</p>
+            <p><strong>Service Interest:</strong> ${contactData.service_interest || "Not provided"}</p>
+            <p><strong>Budget Range:</strong> ${contactData.budget_range || "Not provided"}</p>
+            <p><strong>Timeline:</strong> ${contactData.timeline || "Not provided"}</p>
+            <h3>Message:</h3>
+            <p>${contactData.message}</p>
+            <hr />
+            <p style="color: gray; font-size: 12px;">Submitted via MASS Tech website contact form.</p>
+          `,
+        }),
       });
-      if (!response.ok) {
-        throw new Error("Failed to submit contact form");
-      }
-      return response.json();
-    },
+    } catch (emailError) {
+      console.error("Email sending failed:", emailError);
+    }
+
+    return response.json();
+  },
     onSuccess: (data) => {
       setFormData({
         name: "",
