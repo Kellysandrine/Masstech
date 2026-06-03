@@ -15,19 +15,13 @@ export default function Header() {
           {/* Brand block - left aligned */}
           <div className="flex items-center space-x-3">
             {/* Logo icon */}
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#006DFF] to-[#2F7BFF] dark:from-[#4D8FFF] dark:to-[#6BA3FF] rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-sm sm:text-lg">M</span>
-            </div>
-            {/* Wordmark */}
-            <div>
-              <span className="text-[#0F172A] dark:text-white font-bold text-base sm:text-lg tracking-tight">
-                MASS Tech
-              </span>
-              <div className="text-xs text-[#6B7280] dark:text-[#A3A3A3] hidden sm:block">
-                Building Excellence
-              </div>
-            </div>
-          </div>
+            <div className="flex items-center">
+  <img
+    src="/logo.png"
+    alt="MASS Tech"
+    className="h-8 sm:h-10 w-auto object-contain"
+  />
+</div>
 
           {/* Navigation menu - center aligned - hidden on mobile */}
           <nav
