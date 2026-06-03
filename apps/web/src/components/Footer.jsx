@@ -216,7 +216,7 @@ export default function Footer() {
           <div className="flex space-x-6 text-sm">
             
             <a
-              href="uksandrine@gmail.com"
+              href="mailto:uksandrine@gmail.com"
               className="text-gray-400 hover:text-white transition-colors"
             >
               Designed By: Kelly Sandrine U.
