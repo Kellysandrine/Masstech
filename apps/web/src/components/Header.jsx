@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
+import logo from "../logo.png";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,10 +16,10 @@ export default function Header() {
           {/* Brand block - left aligned */}
 <div className="flex items-center space-x-3">
   <img
-    src="/logo.png"
-    alt="MASS Tech"
-    className="h-8 sm:h-10 w-auto object-contain"
-  />
+  src={logo}
+  alt="MASS Tech"
+  className="h-8 sm:h-10 w-auto object-contain"
+/>
 </div>
 
           {/* Navigation menu - center aligned - hidden on mobile */}
