@@ -8,34 +8,31 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="flex items-center space-x-3 mb-6">
-  <img
-    src={logo1}
-    alt="MASS Tech"
-    className="h-24 w-auto object-contain"
-  />
+<div className="lg:col-span-1">
+  <div className="flex items-center mb-6">
+    <img
+      src={logo1}
+      alt="MASS Tech"
+      className="h-12 w-auto object-contain"
+    />
+  </div>
+  <p className="text-gray-400 text-sm leading-relaxed mb-6">
+    Building Excellence in Rwanda. We specialize in construction,
+    architecture, interior design, and project management with
+    innovation and precision.
+  </p>
+  <div className="flex space-x-4">
+    <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#006DFF] transition-colors cursor-pointer">
+      <span className="text-white text-xs font-bold">f</span>
+    </div>
+    <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#006DFF] transition-colors cursor-pointer">
+      <span className="text-white text-xs font-bold">in</span>
+    </div>
+    <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#006DFF] transition-colors cursor-pointer">
+      <span className="text-white text-xs font-bold">@</span>
+    </div>
+  </div>
 </div>
-              </div>
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Building Excellence in Rwanda. We specialize in construction,
-              architecture, interior design, and project management with
-              innovation and precision.
-            </p>
-            <div className="flex space-x-4">
-              <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#006DFF] transition-colors cursor-pointer">
-                <span className="text-white text-xs font-bold">f</span>
-              </div>
-              <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#006DFF] transition-colors cursor-pointer">
-                <span className="text-white text-xs font-bold">in</span>
-              </div>
-              <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#006DFF] transition-colors cursor-pointer">
-                <span className="text-white text-xs font-bold">@</span>
-              </div>
-            </div>
-          </div>
 
           {/* Quick Links */}
           <div>
