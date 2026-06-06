@@ -33,6 +33,7 @@ import { HotReloadIndicator } from '../__create/HotReload';
 import { useSandboxStore } from '../__create/hmr-sandbox-store';
 import type { Route } from './+types/root';
 import { useDevServerHeartbeat } from '../__create/useDevServerHeartbeat';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 export const links = () => [];
 
@@ -381,6 +382,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <ClientOnly loader={() => children} />
         <HotReloadIndicator />
         <Toaster position="bottom-right" />
+        <SpeedInsights />
         <ScrollRestoration />
         <Scripts />
         <script src="https://kit.fontawesome.com/2c15cc0cc7.js" crossOrigin="anonymous" async />
