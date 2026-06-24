@@ -33,6 +33,7 @@ import { HotReloadIndicator } from '../__create/HotReload';
 import { useSandboxStore } from '../__create/hmr-sandbox-store';
 import type { Route } from './+types/root';
 import { useDevServerHeartbeat } from '../__create/useDevServerHeartbeat';
+import { Analytics } from '@vercel/analytics/react';
 
 export const links = () => [];
 
@@ -383,6 +384,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <Toaster position="bottom-right" />
         <ScrollRestoration />
         <Scripts />
+        <Analytics />
         <script src="https://kit.fontawesome.com/2c15cc0cc7.js" crossOrigin="anonymous" async />
       </body>
     </html>
